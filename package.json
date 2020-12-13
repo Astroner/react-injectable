@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "parcel dev/index.html",
     "build": "tsc",
-    "prepublishOnly": "del ./lib && tsc",
+    "prepublishOnly": "del -f lib && tsc",
     "clear": "del -f lib"
   },
   "keywords": [
