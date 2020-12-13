@@ -3,8 +3,12 @@ import * as React from "react";
 import { render } from "react-dom";
 import App from "./App";
 
-import { log } from "../src";
+import { InjectableProvider } from "../src";
+import { TestService } from "./services/TestService";
+import { TitleService } from "./services/TitleService";
 
-log();
-
-render(<App />, document.getElementById("root"))
+render(
+    <InjectableProvider inject={[TestService, TitleService]}>
+        <App />
+    </InjectableProvider>
+    , document.getElementById("root"))
