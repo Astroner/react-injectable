@@ -6,14 +6,18 @@
   "scripts": {
     "start:dev": "parcel dev/index.html",
     "build": "tsc",
-    "prepublishOnly": "del -f lib && tsc",
-    "clear": "del -f lib"
+    "prepublishOnly": "npm run clear && npm run build",
+    "clear": "del lib --force"
   },
   "keywords": [
     "react",
     "di",
     "ioc"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Astroner/react-injectable"
+  },
   "author": "",
   "license": "ISC",
   "peerDependencies": {
