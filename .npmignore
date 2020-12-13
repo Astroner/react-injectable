@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+dev/
+.git/
+.gitignore
+dist/
+.cache/
+src/
+tsconfig.json

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "inlineSourceMap": true,
+        "jsx": "preserve",
+        "lib": [
+            "DOM",
+            "ES2015",
+            "ES2018.Promise"
+        ],
+        "module": "commonjs",
+        "target": "es2017",
+        "outDir": "./lib"
+    },
+    "include": [
+        "src"
+    ]
+}
