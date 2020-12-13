@@ -2,8 +2,7 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "declaration": true,
-        "inlineSourceMap": true,
-        "jsx": "preserve",
+        "jsx": "react",
         "lib": [
             "DOM",
             "ES2015",

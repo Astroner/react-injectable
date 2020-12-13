@@ -1,11 +1,13 @@
 {
   "name": "@dogonis/react-injectable",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "injectables for react",
   "main": "lib/index.js",
   "scripts": {
     "start:dev": "parcel dev/index.html",
-    "build": "tsc"
+    "build": "tsc",
+    "prepublishOnly": "del ./lib && tsc",
+    "clear": "del -f lib"
   },
   "keywords": [
     "react",
@@ -19,6 +21,7 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
+    "del-cli": "^3.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "typescript": "^4.1.3"
