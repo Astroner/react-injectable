@@ -12,8 +12,8 @@ export const useInjector = <T extends Injectable<any>>(toGet: InjectableConstruc
     const ctx = useContext(InjectableContext);
 
     const service = useMemo(() => {
-        return ctx.map[toGet.name];
-    }, [ctx, toGet.name])
+        return ctx.map.get(toGet);
+    }, [ctx, toGet])
 
     const [value, setValue] = useState<ReturnType<T["getState"]>>(() => {
         return service.getState();   

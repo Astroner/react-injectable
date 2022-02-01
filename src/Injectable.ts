@@ -11,7 +11,7 @@ export abstract class Injectable<StoreType = void> {
 
     private isBinded = false
 
-    private injectablesMap: Record<string, Injectable<any>> = {};
+    private injectablesMap: Map<InjectableConstructor<any>, Injectable<any>> = new Map();
 
     subscribe(...args: Parameters<BehaviorSubject<StoreType>["subscribe"]>){
         return this.subj.subscribe(...args)
@@ -21,7 +21,7 @@ export abstract class Injectable<StoreType = void> {
         return this.subj.getValue();
     }
 
-    _bind(map: Record<string, Injectable<any>>, initValue: StoreType){
+    _bind(map: Map<InjectableConstructor<any>, Injectable<any>>, initValue: StoreType){
         this.isBinded = true;
         this.injectablesMap = map;
         this.subj = new BehaviorSubject(initValue)
@@ -32,7 +32,7 @@ export abstract class Injectable<StoreType = void> {
     }
 
     protected getInjection<T extends Injectable<any>>(target: InjectableConstructor<T>){
-        return this.injectablesMap[target.name] as T
+        return this.injectablesMap.get(target) as T
     }
 
     protected setState(next: StoreType | Setter<StoreType>) {

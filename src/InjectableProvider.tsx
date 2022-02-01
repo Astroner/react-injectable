@@ -20,15 +20,15 @@ const InjectableProvider: FC<IInjectableProvider> = props => {
 
     const value = useMemo<IInjectableContext>(() => {
 
-        const map: Record<string, Injectable<any> & Partial<OnInit>> = {};
+        const map: Map<InjectableConstructor<any>, Injectable<any> & Partial<OnInit>> = new Map();
 
         for (const base of props.inject) {
             const value = base instanceof Function ? new base() : base.getValue();
 
-            map[value.constructor.name] = value
+            map.set(value.constructor as any, value)
         }
 
-        for (const instance of Object.values(map)) {
+        for (const instance of map.values()) {
             instance._bind(map, instance.getDefaultState())
             instance.onInit && instance.onInit();
         }
