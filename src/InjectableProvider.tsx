@@ -30,6 +30,8 @@ const InjectableProvider: FC<IInjectableProvider> = props => {
 
         for (const instance of map.values()) {
             instance._bind(map, instance.getDefaultState())
+        }
+        for (const instance of map.values()) {
             instance.onInit && instance.onInit();
         }
 
