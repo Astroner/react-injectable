@@ -1,4 +1,5 @@
 export * from './Injectable'
 export * from './lifecicle'
 export * from './useInjector'
+export * from './useService'
 export { default as InjectableProvider } from './InjectableProvider'
